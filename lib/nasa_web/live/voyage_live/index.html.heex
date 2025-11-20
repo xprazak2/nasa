@@ -1,0 +1,30 @@
+<Layouts.base>
+  <.header>
+    Calculate fuel for your voyage.
+  </.header>
+
+  <div>
+    <div class="pb-4">Total fuel consumption: <span id="fuel">{@form.data.fuel}</span></div>
+    <.form for={@form} id="voyage-form" phx-change="validate" phx-submit="save">
+        <.input field={@form[:weight]} type="text" label="Weight" />
+          <.inputs_for :let={nested} field={@form[:segments]}>
+            <div class="flex gap-x-3">
+              <div class="flex-2">
+                <.input field={nested[:launch_planet]} type="select" label="Launch" options={planet_options()} />
+                <.input field={nested[:landing_planet]} type="select" label="Landing" options={planet_options()} />
+              </div>
+              <div class="flex flex-col-reverse">
+                <span
+                  phx-click="remove"
+                  phx-value-id={nested.data.id}
+                  class={["hover:cursor-pointer"]}
+                >
+                  <.icon name="hero-x-circle" class="mb-4"/>
+                </span>
+              </div>
+            </div>
+          </.inputs_for>
+    </.form>
+    <.button phx-click="add">Add</.button>
+  </div>
+</Layouts.base>

@@ -9,7 +9,6 @@ defmodule Nasa.Application do
   def start(_type, _args) do
     children = [
       NasaWeb.Telemetry,
-      Nasa.Repo,
       {DNSCluster, query: Application.get_env(:nasa, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Nasa.PubSub},
       # Start a worker by calling: Nasa.Worker.start_link(arg)

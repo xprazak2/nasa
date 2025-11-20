@@ -17,7 +17,7 @@ defmodule NasaWeb.Router do
   scope "/", NasaWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", VoyageLive.Index, :index
   end
 
   # Other scopes may use custom stacks.

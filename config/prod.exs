@@ -16,5 +16,7 @@ config :swoosh, local: false
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :nasa, default_voyage_provider: Nasa.Voyages.Voyage
+
 # Runtime production configuration, including reading
 # of environment variables, is done on config/runtime.exs.

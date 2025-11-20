@@ -29,6 +29,8 @@ config :nasa, NasaWeb.Endpoint,
     tailwind: {Tailwind, :install_and_run, [:nasa, ~w(--watch)]}
   ]
 
+config :nasa, default_voyage_provider: Nasa.Voyages.Voyage
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

@@ -23,6 +23,8 @@ config :nasa, NasaWeb.Endpoint,
 # In test we don't send emails
 config :nasa, Nasa.Mailer, adapter: Swoosh.Adapters.Test
 
+config :nasa, default_voyage_provider: Nasa.Voyages.VoyageMock
+
 # Disable swoosh api client as it is only required for production adapters
 config :swoosh, :api_client, false
 
